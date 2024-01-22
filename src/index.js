@@ -17,12 +17,12 @@ const setupAndStartServer = async () => {
 
   app.post("/api/v1/tickets", TicketController.create);
 
-  // const channel = await createChannel();
-  // subscribeMessage(channel, EmailService.subscribeEvents, REMINDER_BINDING_KEY);
+  const channel = await createChannel();
+  subscribeMessage(channel, EmailService.subscribeEvents, REMINDER_BINDING_KEY);
 
   app.listen(PORT, () => {
     console.log(`Server started at port ${PORT}`);
-    // jobs();
+    jobs();
   });
 };
 
